@@ -89,7 +89,7 @@ export function Usos() {
         </div>
 
         {/* Cards */}
-        <div className="max-w-3xl mx-auto space-y-1.5 sm:space-y-2">
+        <div className="max-w-3xl mx-auto space-y-0.5 sm:space-y-2">
           {useCases.map((useCase, index) => {
             const isActive = index === activeIndex
             const Icon = useCase.icon
@@ -135,25 +135,16 @@ export function Usos() {
                     >
                       {useCase.title}
                     </h3>
-                    {/* Expand/collapse via grid-rows trick for smooth height */}
-                    <div
-                      className="grid transition-[grid-template-rows,opacity] duration-500 ease-out"
-                      style={{
-                        gridTemplateRows: isActive ? "1fr" : "0fr",
-                        opacity: isActive ? 1 : 0,
-                      }}
-                    >
-                      <div className="overflow-hidden">
-                        <div className="pt-1.5">
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            <span className="font-medium text-foreground/80">Vendé:</span> {useCase.sell}
-                          </p>
-                          <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
-                            <span className="font-medium text-accent">Pulgy te ayuda a:</span> {useCase.help}
-                          </p>
-                        </div>
+                    {isActive && (
+                      <div className="pt-1.5 animate-slide-up">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          <span className="font-medium text-foreground/80">Vendé:</span> {useCase.sell}
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
+                          <span className="font-medium text-accent">Pulgy te ayuda a:</span> {useCase.help}
+                        </p>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </button>
