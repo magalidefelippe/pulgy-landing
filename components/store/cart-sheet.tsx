@@ -51,7 +51,7 @@ export function CartSheet() {
 
   return (
     <Drawer open={isOpen} onOpenChange={closeCart}>
-      <DrawerContent className="h-[85vh] px-4 pb-0 flex flex-col">
+      <DrawerContent className="h-[80dvh] px-4 pb-0 flex flex-col">
         <DrawerHeader className="px-0 pt-4 pb-4 flex-shrink-0">
           <DrawerTitle className="type-title text-left text-foreground">Carrito</DrawerTitle>
           {!isEmpty && <p className="type-body mt-0.5 text-muted-foreground text-left">{items.length} productos</p>}
@@ -233,7 +233,7 @@ export function CartSheet() {
                 if (!open) handleClose()
               }}
             >
-              <DrawerContent className="h-[90vh] flex flex-col">
+              <DrawerContent className="h-[85dvh] flex flex-col">
                 <DrawerHeader className="px-4 pt-4 pb-4 flex-shrink-0">
                   <DrawerTitle className="type-title text-left text-foreground">{item.title}</DrawerTitle>
                 </DrawerHeader>

@@ -137,7 +137,7 @@ export function StoreProductPreviewSheet({ isOpen, onClose, product }: StoreProd
 
   return (
     <Drawer open={isOpen} onOpenChange={onClose}>
-      <DrawerContent className="h-[95vh] flex flex-col">
+      <DrawerContent className="h-[85dvh] flex flex-col">
         <DrawerHeader className="px-4 pt-4 pb-4 shrink-0">
           <DrawerTitle className="sr-only">{product.title}</DrawerTitle>
         </DrawerHeader>
