@@ -40,9 +40,9 @@ const features = [
 
 export function Features() {
   return (
-    <section id="beneficios" className="bg-background py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+    <section id="beneficios" className="bg-background pt-16 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6 scroll-mt-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-20">
+        <div className="text-center mb-8 sm:mb-12">
           <p className="type-section-label text-accent mb-3 sm:mb-4">Beneficios</p>
           <h2 className="type-section-title text-foreground">
             Todo lo que necesitás para vender online, en un <HandwrittenUnderline>solo lugar</HandwrittenUnderline>
@@ -57,9 +57,9 @@ export function Features() {
               className="bg-white/60 p-3 sm:p-5 rounded-lg border border-dashed hover:shadow-md hover:border-accent/50 transition-all duration-300 group"
               style={{ borderColor: "#d0c9c2" }}
             >
-              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <feature.icon size={16} className="sm:w-[18px] sm:h-[18px]" />
+              <div className="flex items-center gap-2 sm:gap-2.5 mb-1.5 sm:mb-2">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <feature.icon size={18} className="sm:w-5 sm:h-5" />
                 </div>
                 <h3
                   className="text-sm sm:text-base font-semibold text-foreground"
@@ -68,7 +68,7 @@ export function Features() {
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

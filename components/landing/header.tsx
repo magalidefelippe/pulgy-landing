@@ -21,10 +21,13 @@ export function Header() {
           <Link href="/#beneficios" className="type-body-sm hover:text-foreground transition-colors">
             Beneficios
           </Link>
+          <Link href="/#usos" className="type-body-sm hover:text-foreground transition-colors">
+            Usos
+          </Link>
           <Link href="/#como-funciona" className="type-body-sm hover:text-foreground transition-colors">
             Cómo funciona
           </Link>
-          <Link href="/#tienda-ejemplo" className="type-body-sm hover:text-foreground transition-colors">
+          <Link href="/demo" className="type-body-sm hover:text-foreground transition-colors">
             Tienda de ejemplo
           </Link>
           <Link href="/#precios" className="type-body-sm hover:text-foreground transition-colors">
@@ -56,10 +59,13 @@ export function Header() {
           <Link href="/#beneficios" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
             Beneficios
           </Link>
+          <Link href="/#usos" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
+            Usos
+          </Link>
           <Link href="/#como-funciona" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
             Cómo funciona
           </Link>
-          <Link href="/#tienda-ejemplo" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/demo" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
             Tienda de ejemplo
           </Link>
           <Link href="/#precios" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
