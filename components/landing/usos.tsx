@@ -52,27 +52,15 @@ const useCases = [
 
 export function Usos() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [progress, setProgress] = useState(0)
+  // Key to force CSS animation restart on the progress bar
+  const [animKey, setAnimKey] = useState(0)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const startAutoplay = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
-    if (progressRef.current) clearInterval(progressRef.current)
-
-    setProgress(0)
-
-    const progressStep = 50
-    progressRef.current = setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + (progressStep / AUTOPLAY_INTERVAL) * 100
-        return next >= 100 ? 100 : next
-      })
-    }, progressStep)
-
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % useCases.length)
-      setProgress(0)
+      setAnimKey((k) => k + 1)
     }, AUTOPLAY_INTERVAL)
   }, [])
 
@@ -80,29 +68,28 @@ export function Usos() {
     startAutoplay()
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)
-      if (progressRef.current) clearInterval(progressRef.current)
     }
   }, [startAutoplay])
 
   const handleSelect = (index: number) => {
     setActiveIndex(index)
-    setProgress(0)
+    setAnimKey((k) => k + 1)
     startAutoplay()
   }
 
   return (
-    <section id="usos" className="bg-background py-16 sm:py-24 px-4 sm:px-6 scroll-mt-12">
+    <section id="usos" className="bg-background py-10 sm:py-24 px-4 sm:px-6 scroll-mt-12">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-16">
-          <p className="type-section-label text-accent mb-3 sm:mb-4">USOS</p>
+        <div className="text-center mb-6 sm:mb-16">
+          <p className="type-section-label text-accent mb-2 sm:mb-4">USOS</p>
           <h2 className="type-section-title text-foreground">
             Lo que podés <HandwrittenUnderline>vender</HandwrittenUnderline> con Pulgy
           </h2>
         </div>
 
         {/* Cards */}
-        <div className="max-w-3xl mx-auto space-y-2">
+        <div className="max-w-3xl mx-auto space-y-1.5 sm:space-y-2">
           {useCases.map((useCase, index) => {
             const isActive = index === activeIndex
             const Icon = useCase.icon
@@ -112,17 +99,20 @@ export function Usos() {
                 key={useCase.id}
                 type="button"
                 onClick={() => handleSelect(index)}
-                className={`w-full text-left rounded-lg p-4 sm:p-5 transition-all duration-300 group relative overflow-hidden ${
+                className={`w-full text-left rounded-lg p-3 sm:p-5 group relative overflow-hidden transition-shadow duration-300 ${
                   isActive
                     ? "bg-white shadow-[0_2px_16px_0_rgba(0,0,0,0.08)]"
                     : "hover:bg-white/50"
                 }`}
               >
-                {/* Progress bar */}
+                {/* Progress bar — pure CSS animation, GPU-accelerated */}
                 {isActive && (
                   <div
-                    className="absolute bottom-0 left-0 h-[2px] bg-accent transition-none"
-                    style={{ width: `${progress}%` }}
+                    key={`progress-${animKey}`}
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent will-change-transform origin-left"
+                    style={{
+                      animation: `usos-progress ${AUTOPLAY_INTERVAL}ms linear forwards`,
+                    }}
                   />
                 )}
 
@@ -145,17 +135,24 @@ export function Usos() {
                     >
                       {useCase.title}
                     </h3>
+                    {/* Expand/collapse via grid-rows trick for smooth height */}
                     <div
-                      className={`overflow-hidden transition-all duration-500 ${
-                        isActive ? "max-h-40 opacity-100 mt-1.5" : "max-h-0 opacity-0"
-                      }`}
+                      className="grid transition-[grid-template-rows,opacity] duration-500 ease-out"
+                      style={{
+                        gridTemplateRows: isActive ? "1fr" : "0fr",
+                        opacity: isActive ? 1 : 0,
+                      }}
                     >
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        <span className="font-medium text-foreground/80">Vendé:</span> {useCase.sell}
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
-                        <span className="font-medium text-accent">Pulgy te ayuda a:</span> {useCase.help}
-                      </p>
+                      <div className="overflow-hidden">
+                        <div className="pt-1.5">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-foreground/80">Vendé:</span> {useCase.sell}
+                          </p>
+                          <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
+                            <span className="font-medium text-accent">Pulgy te ayuda a:</span> {useCase.help}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

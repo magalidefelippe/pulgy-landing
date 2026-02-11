@@ -315,6 +315,15 @@
 }
 
 /* Animations */
+@keyframes usos-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0.4;
