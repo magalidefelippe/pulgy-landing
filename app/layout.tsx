@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { DM_Sans, Inter_Tight, JetBrains_Mono } from "next/font/google"
+import { DM_Sans, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
@@ -11,20 +11,13 @@ const dmSans = DM_Sans({
   display: "swap",
 })
 
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  variable: "--font-inter-tight",
-  weight: ["600", "700"],
-  display: "swap",
-})
-
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
 })
 
-const inter = dmSans; // Declare the inter variable
+const inter = dmSans;
 const baseUrl = "https://pulgy.app"; // Declare the baseUrl variable
 
 export const metadata: Metadata = {
@@ -117,8 +110,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <head />
-      <body className={`${dmSans.variable} ${interTight.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <head>
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

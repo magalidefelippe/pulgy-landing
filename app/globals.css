@@ -50,15 +50,15 @@
   --accent-secondary: #2A7D6E;
   --accent-secondary-foreground: #ffffff;
   --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-heading: "Inter Tight", "DM Sans", system-ui, sans-serif;
-  --font-logo: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-heading: "Satoshi", "DM Sans", system-ui, sans-serif;
+  --font-logo: "Satoshi", "DM Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
 @theme inline {
   --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-heading: "Inter Tight", "DM Sans", system-ui, sans-serif;
-  --font-logo: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-heading: "Satoshi", "DM Sans", system-ui, sans-serif;
+  --font-logo: "Satoshi", "DM Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --color-accent-secondary: var(--accent-secondary);
   --color-accent-secondary-foreground: var(--accent-secondary-foreground);
@@ -124,7 +124,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Headers usan Inter Tight */
+  /* Headers usan Satoshi */
   h1,
   h2,
   h3,
@@ -203,7 +203,7 @@
 /* Typography */
 .type-display {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  font-size: clamp(2.25rem, 8vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -211,7 +211,7 @@
 
 .type-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem; /* 20px mobile */
+  font-size: 1.5rem; /* 24px mobile */
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -219,13 +219,13 @@
 
 @media (min-width: 768px) {
   .type-title {
-    font-size: 1.5rem; /* 24px desktop */
+    font-size: 1.875rem; /* 30px desktop */
   }
 }
 
 .type-section-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -233,7 +233,7 @@
 
 .type-section-label {
   font-family: var(--font-sans);
-  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+  font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 1.2;
@@ -242,7 +242,7 @@
 
 .type-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -250,7 +250,7 @@
 
 .type-body {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--muted-foreground);
@@ -258,14 +258,14 @@
 
 .type-label {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
 }
 
 .type-placeholder {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--muted-foreground);
@@ -274,7 +274,7 @@
 
 .type-caption {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -282,13 +282,13 @@
 
 .type-mono {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 400;
 }
 
 .type-stat {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1;
@@ -297,7 +297,7 @@
 
 .type-price {
   font-family: var(--font-heading);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
