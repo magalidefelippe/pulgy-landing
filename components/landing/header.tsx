@@ -18,11 +18,11 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/#beneficios" className="type-body-sm hover:text-foreground transition-colors">
-            Beneficios
-          </Link>
           <Link href="/#usos" className="type-body-sm hover:text-foreground transition-colors">
             Usos
+          </Link>
+          <Link href="/#beneficios" className="type-body-sm hover:text-foreground transition-colors">
+            Beneficios
           </Link>
           <Link href="/#como-funciona" className="type-body-sm hover:text-foreground transition-colors">
             Cómo funciona
@@ -56,11 +56,11 @@ export function Header() {
         style={{ borderColor: "#d0c9c2" }}
       >
         <nav className="flex flex-col gap-4">
-          <Link href="/#beneficios" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
-            Beneficios
-          </Link>
           <Link href="/#usos" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
             Usos
+          </Link>
+          <Link href="/#beneficios" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
+            Beneficios
           </Link>
           <Link href="/#como-funciona" className="type-body-sm py-2" onClick={() => setIsMenuOpen(false)}>
             Cómo funciona
